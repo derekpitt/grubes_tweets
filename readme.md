@@ -26,7 +26,7 @@ Example Code:
 
 It doesn't speak RT's, or @replies.
 
-It also checks every minute for now (you are limited to 120 API calls to twitter)
+It also checks every minute for now (you are limited to 150 API calls/hr to twitter)
 
 ---
 
