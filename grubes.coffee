@@ -45,12 +45,18 @@ class Process
 #  Zarvox
 
 class Say extends Process
-  constructor: (@voice = "Whisper") ->
+  constructor: (@voice = "Alex") ->
     super
 
+  remove_url_from_string: (string) ->
+    string.replace /htt(p|ps):\/\/(\w|\.|\/|\?)*/g, ""
+
+  clean_string: (string) ->
+    string = @remove_url_from_string string
+    string
 
   say: (string_to_say) ->
-    @run_process "say -v \"#{@voice}\" \"#{string_to_say}\""
+    @run_process "say -v \"#{@voice}\" \"#{@clean_string string_to_say}\""
 
 
 
@@ -114,7 +120,7 @@ class TwitterTimeLineWatcher
 
 
 # and let's go!
-user = "tweetgrubes"
+user = "TechCrunch"
 
 watcher = new TwitterTimeLineWatcher user, (new_tweet) ->
   powpow = new Say
